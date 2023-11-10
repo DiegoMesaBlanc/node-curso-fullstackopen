@@ -1,0 +1,21 @@
+### Recuperar PERSONS
+GET http://localhost:3001/api/persons
+
+
+### Recuperar PERSON
+GET http://localhost:3001/api/persons/4
+
+
+### Crear una persona POST
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+Accept: */*
+
+{
+  name: "Diego Mesa",
+  number: "040-123456333",
+}
+
+### Eliminar persona por ID
+DELETE http://localhost:3001/api/persons/4
+
