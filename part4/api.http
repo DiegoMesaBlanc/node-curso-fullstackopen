@@ -1,9 +1,9 @@
 ### Recuperar BLOGS
-GET http://localhost:3001/api/blogs
+GET http://localhost:3003/api/blogs
 
 
 ### Recuperar BLOG
-GET http://localhost:3001/api/blogs/4
+GET http://localhost:3003/api/blogs/4
 
 
 ### Crear un blog POST

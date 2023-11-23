@@ -1,3 +1,5 @@
+require('express-async-errors')
+
 const config = require('./utils/config')
 const express = require('express')
 const app = express()
@@ -6,7 +8,9 @@ const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
 const blogRouter = require('./controllers/blog')
-const morgan = require('morgan')
+const loginRouter = require('./controllers/login')
+
+mongoose.set('strictQuery', false)
 
 logger.info('connecting to', config.MONGODB_URI)
 
@@ -25,10 +29,8 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(middleware.requestLogger)
 
-morgan.token('body', (req) => JSON.stringify(req.body))
-app.use(morgan(':method :url :status :response-time ms :body'))
-
 // Routes
+app.use('/api/login', loginRouter)
 app.use('/api/blogs', blogRouter)
 
 // Middleware despues de las rutas
